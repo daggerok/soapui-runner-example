@@ -1,6 +1,6 @@
-= soapui-testrunner-groovy (example)
+= io.github.daggerok.soapui-testrunner plugin usage example
 
-This repo is contains example of local usage link:https://github.com/daggerok/soapui-testrunner-groovy[soapui-testrunner-groovy plugin]
+This repo is contains example of local usage link:https://github.com/daggerok/soapui-testrunner[soapui-testrunner plugin]
 
 [source,bash]
 gradle testrunner
