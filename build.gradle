@@ -25,8 +25,6 @@ version '0.0.1'
 
 // customize TestCases to run
 
-import io.github.daggerok.tasks.SoapUITestRunnerTask
-
 Task[] soapUITestCaseTasks = [
 
     'TestCase 1',
@@ -38,36 +36,30 @@ Task[] soapUITestCaseTasks = [
 ].collect { testCaseName ->
 
   def noSpaceCase = testCaseName.replaceAll(/\s+$/, '').capitalize()
-  def task = tasks.create(name: noSpaceCase, type: SoapUITestRunnerTask) {
+
+  tasks.create(name: noSpaceCase, type: io.github.daggerok.tasks.SoapUITestRunnerTask) {
     testCase = noSpaceCase
     outputFolder = "$buildDir/soapui/$noSpaceCase"
     projectProperties = [
         'apiEndpoint=https://jsonplaceholder.typicode.com'
     ]
   }
-  task
 }
 
 task soapUITestCases(dependsOn: soapUITestCaseTasks)
 
 // customize TestSuites to run
 
-Task[] soapUITestSuiteTasks = []
+import io.github.daggerok.tasks.SoapUITestRunnerTask
 
-[
+task soapUITestSuites(dependsOn: [
+
+    'TestSuite 1',
     'TestSuite 2',
-    'TestSuite 3',
 
-].each { testSuiteName ->
-
-  def noSpaceSuite = testSuiteName.replaceAll(/\s+$/, '').capitalize()
-  soapUITestSuiteTasks += tasks.create(name: noSpaceSuite, type: SoapUITestRunnerTask) {
-    testSuite = testSuiteName
-    outputFolder = "$buildDir/soapui/$noSpaceSuite"
-    projectProperties = [
-        'apiEndpoint=https://jsonplaceholder.typicode.com'
-    ]
+].collect { suiteName ->
+  tasks.create(name: suiteName, type: SoapUITestRunnerTask) {
+    testSuite = suiteName
+    outputFolder = "$buildDir/soapui/$suiteName"
   }
-}
-
-task soapUITestSuites(dependsOn: soapUITestSuiteTasks)
+})
