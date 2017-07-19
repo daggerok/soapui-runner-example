@@ -49,3 +49,25 @@ Task[] soapUITestCaseTasks = [
 }
 
 task soapUITestCases(dependsOn: soapUITestCaseTasks)
+
+// customize TestSuites to run
+
+Task[] soapUITestSuiteTasks = []
+
+[
+    'TestSuite 2',
+    'TestSuite 3',
+
+].each { testSuiteName ->
+
+  def noSpaceSuite = testSuiteName.replaceAll(/\s+$/, '').capitalize()
+  soapUITestSuiteTasks += tasks.create(name: noSpaceSuite, type: SoapUITestRunnerTask) {
+    testSuite = testSuiteName
+    outputFolder = "$buildDir/soapui/$noSpaceSuite"
+    projectProperties = [
+        'apiEndpoint=https://jsonplaceholder.typicode.com'
+    ]
+  }
+}
+
+task soapUITestSuites(dependsOn: soapUITestSuiteTasks)
