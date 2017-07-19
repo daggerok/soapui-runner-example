@@ -23,10 +23,29 @@ apply plugin: io.github.daggerok.SoapUITestRunnerPlugin
 group 'daggerok'
 version '0.0.1'
 
-testrunner {
-  projectFile "$projectDir/soapui-test-project.xml"
-  failOnError true
-  projectProperties = [
-      'apiEndpoint=https://jsonplaceholder.typicode.com'
-  ]
+// customize TestCases to run
+
+import io.github.daggerok.tasks.SoapUITestRunnerTask
+
+Task[] soapUITestCaseTasks = [
+
+    'TestCase 1',
+    'TestCase 2',
+    'TestCase 3',
+    'TestCase 4',
+    'TestCase 5',
+
+].collect { testCaseName ->
+
+  def noSpaceCase = testCaseName.replaceAll(/\s+$/, '').capitalize()
+  def task = tasks.create(name: noSpaceCase, type: SoapUITestRunnerTask) {
+    testCase = noSpaceCase
+    outputFolder = "$buildDir/soapui/$noSpaceCase"
+    projectProperties = [
+        'apiEndpoint=https://jsonplaceholder.typicode.com'
+    ]
+  }
+  task
 }
+
+task soapUITestCases(dependsOn: soapUITestCaseTasks)
