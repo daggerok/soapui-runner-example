@@ -1,27 +1,22 @@
 buildscript {
   ext {
-    testrunnerVersion = '0.0.3'
-//    testrunnerVersion = '0.0.2'
+    testrunnerVersion = '0.0.2'
   }
   repositories {
-//    mavenLocal()
     jcenter()
     maven { url 'https://plugins.gradle.org/m2/' }
     maven { url 'http://smartbearsoftware.com/repository/maven2/' }
   }
   dependencies {
-    classpath "io.github.daggerok:soapui-testrunner:$testrunnerVersion"
-//    classpath "gradle.plugin.io.github.daggerok:soapui-testrunner:$testrunnerVersion"
+    classpath "gradle.plugin.io.github.daggerok:soapui-testrunner:$testrunnerVersion"
   }
 }
 
 plugins {
   id 'java'
-//  id 'io.github.daggerok.soapui-testrunner' version '0.0.2'
 }
 
-//apply plugin: io.github.daggerok.SoapUITestRunnerPlugin
-apply plugin: 'io.github.daggerok.soapui-testrunner'
+apply plugin: io.github.daggerok.SoapUITestRunnerPlugin
 
 group 'daggerok'
 version '0.0.1'
