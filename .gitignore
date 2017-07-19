@@ -1,5 +1,4 @@
 ext
-!ext/.gitkeet
 .gradle
 .idea
 build
