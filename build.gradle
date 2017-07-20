@@ -1,16 +1,15 @@
 buildscript {
   ext {
-    testrunnerVersion = '0.0.3'
+    soapUIRunnerVersion = '0.0.3'
   }
   repositories {
-    mavenLocal() // (1) local
+    mavenLocal()
     jcenter()
     maven { url 'https://plugins.gradle.org/m2/' }
     maven { url 'http://smartbearsoftware.com/repository/maven2/' }
   }
   dependencies {
-    // classpath "gradle.plugin.io.github.daggerok:soapui-testrunner:$testrunnerVersion"
-    classpath "io.github.daggerok:soapui-testrunner:$testrunnerVersion" // (2) local
+    classpath "io.github.daggerok:soapui-testrunner:$soapUIRunnerVersion"
   }
 }
 
@@ -18,48 +17,7 @@ plugins {
   id 'java'
 }
 
-apply plugin: io.github.daggerok.SoapUITestRunnerPlugin
+apply plugin: 'io.github.daggerok.soapui-runner'
 
 group 'daggerok'
 version '0.0.1'
-
-// customize TestCases to run
-
-Task[] soapUITestCaseTasks = [
-
-    'TestCase 1',
-    'TestCase 2',
-    'TestCase 3',
-    'TestCase 4',
-    'TestCase 5',
-
-].collect { testCaseName ->
-
-  def noSpaceCase = testCaseName.replaceAll(/\s+$/, '').capitalize()
-
-  tasks.create(name: noSpaceCase, type: io.github.daggerok.tasks.SoapUITestRunnerTask) {
-    testCase = noSpaceCase
-    outputFolder = "$buildDir/soapui/$noSpaceCase"
-    projectProperties = [
-        'apiEndpoint=https://jsonplaceholder.typicode.com'
-    ]
-  }
-}
-
-task soapUITestCases(dependsOn: soapUITestCaseTasks)
-
-// customize TestSuites to run
-
-import io.github.daggerok.tasks.SoapUITestRunnerTask
-
-task soapUITestSuites(dependsOn: [
-
-    'TestSuite 1',
-    'TestSuite 2',
-
-].collect { suiteName ->
-  tasks.create(name: suiteName, type: SoapUITestRunnerTask) {
-    testSuite = suiteName
-    outputFolder = "$buildDir/soapui/$suiteName"
-  }
-})
