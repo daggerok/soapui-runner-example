@@ -1,6 +1,7 @@
-= io.github.daggerok.soapui-testrunner plugin usage example
+= io.github.daggerok.soapui-testrunner plugin usage example image:https://travis-ci.org/daggerok/soapui-testrunner-example.svg?branch=4.6.1-local["Build Status", link="https://travis-ci.org/daggerok/soapui-testrunner-example"]
 
-This repo is contains example of local usage link:https://github.com/daggerok/soapui-testrunner[soapui-testrunner plugin]
+This repo is contains example of configuration link:https://github.com/daggerok/soapui-testrunner[soapui-runner plugin]
 
 [source,bash]
 gradle testrunner
+gradle loadtestrunner

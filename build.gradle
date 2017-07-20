@@ -1,15 +1,15 @@
 buildscript {
   ext {
-    soapUIRunnerVersion = '0.0.3'
+    soapUIRunnerVersion = '4.6.1'
   }
   repositories {
     mavenLocal()
-    jcenter()
     maven { url 'https://plugins.gradle.org/m2/' }
     maven { url 'http://smartbearsoftware.com/repository/maven2/' }
+    jcenter()
   }
   dependencies {
-    classpath "io.github.daggerok:soapui-testrunner:$soapUIRunnerVersion"
+    classpath "io.github.daggerok:soapui-runner:$soapUIRunnerVersion"
   }
 }
 
