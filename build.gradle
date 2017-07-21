@@ -1,6 +1,6 @@
 buildscript {
   ext {
-    soapUIRunnerVersion = '4.6.3'
+    soapUIRunnerVersion = '4.6.4'
   }
   repositories {
     mavenLocal()
