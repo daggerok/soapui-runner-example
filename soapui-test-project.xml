@@ -1,11 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <con:soapui-project id="f4fd9f8b-8379-4427-8574-f7201deb7862" activeEnvironment="Default" name="soapui-test-project" resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config">
-  <con:settings/>
+  <con:settings>
+    <con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.LoadTestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="TestSuite" value="TestSuite"/>
+  <con:entry key="Report to Generate" value=""/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="TestRunner Path" value="/Applications/SoapUI-5.3.0.app/Contents/Resources/app/bin"/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="LoadTest" value="LoadTest 1"/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="Save Project" value="false"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Print Report Statistics" value="false"/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="TestCase" value="TestCase"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="ThreadCount" value=""/>
+  <con:entry key="Limit" value=""/>
+</xml-fragment>]]></con:setting>
+  </con:settings>
   <con:interface xsi:type="con:RestService" id="0f5f5263-2489-492e-972c-f99565c600a7" wadlVersion="http://wadl.dev.java.net/2009/02" name="BaseApiEndpoint" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:settings/>
     <con:definitionCache type="TEXT" rootPart=""/>
     <con:endpoints/>
-    <con:resource name="${#Project#apiEndpoint}" path="/" id="1302addb-5ec6-46c3-9d5f-12d155aa5e17">
+    <con:resource name="${#Project#apiEndpoint}" path="/api/test-data/soapui.json" id="1302addb-5ec6-46c3-9d5f-12d155aa5e17">
       <con:settings/>
       <con:parameters/>
       <con:method name="GET" id="6381ed28-9163-4240-b684-b7ad3d80eee5" method="GET">
@@ -59,6 +89,7 @@
           </con:settings>
           <con:endpoint>${#Project#apiEndpoint}</con:endpoint>
           <con:request/>
+          <con:originalUri>https://daggerok.github.io/api/test-data/soapui.json</con:originalUri>
           <con:credentials>
             <con:authType>No Authorization</con:authType>
           </con:credentials>
@@ -77,7 +108,7 @@
       <con:settings/>
       <con:testStep type="restrequest" name="GetRequest" id="1d4c2fce-ceb2-4c7c-8eac-a59ac2c44ef0">
         <con:settings/>
-        <con:config service="BaseApiEndpoint" resourcePath="/" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <con:config service="BaseApiEndpoint" resourcePath="/api/test-data/soapui.json" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:restRequest name="GetRequest" id="29e173c3-1fd9-47a7-bec9-b49babe06ed2" mediaType="application/json">
             <con:settings>
               <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
@@ -85,16 +116,39 @@
             <con:endpoint>${#Project#apiEndpoint}</con:endpoint>
             <con:request/>
             <con:originalUri>http://localhost/</con:originalUri>
-            <con:assertion type="Invalid HTTP Status Codes" id="fdaf073d-33b0-4f16-9e76-923e93d94d0f" name="Invalid HTTP Status Codes">
+            <con:assertion type="Valid HTTP Status Codes" id="8c9474c2-25d9-4051-a7c4-cb1510b359da" name="Valid HTTP Status Codes">
               <con:configuration>
-                <codes>500</codes>
+                <codes>200</codes>
               </con:configuration>
             </con:assertion>
-            <con:assertion type="Simple Contains" id="1004a0d8-0507-4d55-879c-44bb9900429c" name="Contains">
+            <con:assertion type="Invalid HTTP Status Codes" id="fdaf073d-33b0-4f16-9e76-923e93d94d0f" name="Invalid HTTP Status Codes: 400, 500">
               <con:configuration>
-                <token>current_user</token>
+                <codes>500,400</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Simple Contains" id="1004a0d8-0507-4d55-879c-44bb9900429c" name="Contains name in the response">
+              <con:configuration>
+                <token>name</token>
                 <ignoreCase>false</ignoreCase>
                 <useRegEx>false</useRegEx>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="JsonPath Count" id="212c2065-75e9-4dfc-b45b-bf165ec8e7f8" name="JsonPath Count: 1 $.[?(@name==Ukraine)]" disabled="true">
+              <con:configuration>
+                <path>$.[?(@name==Ukraine)]</path>
+                <content>1</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="JsonPath Count" id="624753b9-3962-45b6-a773-6da4d5b8ec15" name="JsonPath Count: total 249 objects in response" disabled="true">
+              <con:configuration>
+                <path>$..name</path>
+                <content>249</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
               </con:configuration>
             </con:assertion>
             <con:credentials>
@@ -115,7 +169,7 @@
         <con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed>
         <con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange>
         <con:historyLimit>-1</con:historyLimit>
-        <con:testLimit>3</con:testLimit>
+        <con:testLimit>5</con:testLimit>
         <con:limitType>TIME</con:limitType>
         <con:loadStrategy>
           <con:type>Simple</con:type>
@@ -124,7 +178,22 @@
             <randomFactor>1.0</randomFactor>
           </con:config>
         </con:loadStrategy>
-        <con:assertion type="Step Status" name="Step Status"/>
+        <con:assertion type="Step Status" name="Step Status">
+          <con:configuration>
+            <name>Step Status</name>
+            <min-requests>0</min-requests>
+            <test-step>GetRequest</test-step>
+            <max-errors>0</max-errors>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Max Errors" name="Max Errors">
+          <con:configuration>
+            <name>Max Errors</name>
+            <max-absolute-errors>0</max-absolute-errors>
+            <max-relative-errors>0.0</max-relative-errors>
+            <test-step>GetRequest</test-step>
+          </con:configuration>
+        </con:assertion>
         <con:maxAssertionErrors>100</con:maxAssertionErrors>
         <con:cancelExcessiveThreads>true</con:cancelExcessiveThreads>
         <con:strategyInterval>500</con:strategyInterval>
@@ -136,7 +205,7 @@
   <con:properties>
     <con:property>
       <con:name>apiEndpoint</con:name>
-      <con:value>https://api.github.com</con:value>
+      <con:value>https://daggerok.github.io</con:value>
     </con:property>
   </con:properties>
   <con:wssContainer/>
