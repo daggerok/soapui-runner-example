@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+q<?xml version="1.0" encoding="UTF-8"?>
 <con:soapui-project id="f4fd9f8b-8379-4427-8574-f7201deb7862" activeEnvironment="Default" name="soapui-test-project" resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.LoadTestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
@@ -133,7 +133,7 @@
                 <useRegEx>false</useRegEx>
               </con:configuration>
             </con:assertion>
-            <con:assertion type="JsonPath Count" id="212c2065-75e9-4dfc-b45b-bf165ec8e7f8" name="JsonPath Count: 1 $.[?(@name==Ukraine)]" disabled="true">
+            <con:assertion type="JsonPath Count" id="212c2065-75e9-4dfc-b45b-bf165ec8e7f8" name="JsonPath Count: 1 $.[?(@name==Ukraine)]">
               <con:configuration>
                 <path>$.[?(@name==Ukraine)]</path>
                 <content>1</content>
@@ -142,7 +142,7 @@
                 <ignoreComments>false</ignoreComments>
               </con:configuration>
             </con:assertion>
-            <con:assertion type="JsonPath Count" id="624753b9-3962-45b6-a773-6da4d5b8ec15" name="JsonPath Count: total 249 objects in response" disabled="true">
+            <con:assertion type="JsonPath Count" id="624753b9-3962-45b6-a773-6da4d5b8ec15" name="JsonPath Count: total 249 objects in response">
               <con:configuration>
                 <path>$..name</path>
                 <content>249</content>
