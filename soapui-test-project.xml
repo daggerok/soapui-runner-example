@@ -70,47 +70,6 @@
       </con:method>
     </con:resource>
   </con:interface>
-  <con:interface xsi:type="con:RestService" id="8ba5ae46-0ff6-41d8-afc3-fcacbce04859" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://jsonplaceholder.typicode.com" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <con:settings/>
-    <con:definitionCache type="TEXT" rootPart=""/>
-    <con:endpoints>
-      <con:endpoint>https://jsonplaceholder.typicode.com</con:endpoint>
-    </con:endpoints>
-    <con:resource name="Posts" path="/posts" id="dec3bd2e-a74d-4863-9055-dc4ca9a1e880">
-      <con:settings/>
-      <con:parameters/>
-      <con:method name="GET" id="9f32c478-8c50-49b4-9347-de0cb4138d23" method="GET">
-        <con:settings/>
-        <con:parameters/>
-        <con:representation type="RESPONSE">
-          <con:mediaType>application/json; charset=UTF-8</con:mediaType>
-          <con:status>200</con:status>
-          <con:params/>
-          <con:element>html</con:element>
-        </con:representation>
-        <con:representation type="RESPONSE">
-          <con:mediaType>application/json; charset=utf-8</con:mediaType>
-          <con:status>200</con:status>
-          <con:params/>
-          <con:element>Response</con:element>
-        </con:representation>
-        <con:request name="Request" id="1e5a1018-7aa8-47ea-8f82-bfc6796a3495" mediaType="application/json">
-          <con:settings>
-            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-          </con:settings>
-          <con:endpoint>https://jsonplaceholder.typicode.com</con:endpoint>
-          <con:request/>
-          <con:originalUri>https://jsonplaceholder.typicode.com/</con:originalUri>
-          <con:credentials>
-            <con:authType>No Authorization</con:authType>
-          </con:credentials>
-          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-          <con:jmsPropertyConfig/>
-          <con:parameters/>
-        </con:request>
-      </con:method>
-    </con:resource>
-  </con:interface>
   <con:testSuite id="437f1514-d6c4-4dd5-b88f-91f13185ac55" name="TestSuite">
     <con:settings/>
     <con:runType>SEQUENTIAL</con:runType>
@@ -131,6 +90,13 @@
                 <codes>500</codes>
               </con:configuration>
             </con:assertion>
+            <con:assertion type="Simple Contains" id="1004a0d8-0507-4d55-879c-44bb9900429c" name="Contains">
+              <con:configuration>
+                <token>current_user</token>
+                <ignoreCase>false</ignoreCase>
+                <useRegEx>false</useRegEx>
+              </con:configuration>
+            </con:assertion>
             <con:credentials>
               <con:authType>No Authorization</con:authType>
             </con:credentials>
@@ -141,52 +107,28 @@
           </con:restRequest>
         </con:config>
       </con:testStep>
-      <con:testStep type="restrequest" name="GetPosts" id="7aa74207-1235-445b-a9a1-d85ad7c24911">
+      <con:loadTest id="5b48846a-247b-407e-b478-5c17c0180083" name="LoadTest 1">
         <con:settings/>
-        <con:config service="https://jsonplaceholder.typicode.com" resourcePath="/posts" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="GetPosts" id="1e5a1018-7aa8-47ea-8f82-bfc6796a3495" mediaType="application/json">
-            <con:settings>
-              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-            </con:settings>
-            <con:endpoint>https://jsonplaceholder.typicode.com</con:endpoint>
-            <con:request/>
-            <con:originalUri>https://jsonplaceholder.typicode.com/</con:originalUri>
-            <con:assertion type="JsonPath Count" id="9de2bee5-d98e-4867-a7f8-304e1df64b16" name="JsonPath Count">
-              <con:configuration>
-                <path>$</path>
-                <content>100</content>
-                <allowWildcards>false</allowWildcards>
-                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
-                <ignoreComments>false</ignoreComments>
-              </con:configuration>
-            </con:assertion>
-            <con:assertion type="JsonPath Count" id="97a6b05e-16f5-47dc-b696-08223969583e" name="JsonPath Count 1">
-              <con:configuration>
-                <path>$.[?(@userId==10)]</path>
-                <content>10</content>
-                <allowWildcards>false</allowWildcards>
-                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
-                <ignoreComments>false</ignoreComments>
-              </con:configuration>
-            </con:assertion>
-            <con:assertion type="JsonPath Count" id="c21461ed-c65e-48f4-aad8-11ce80179a03" name="JsonPath Count 2">
-              <con:configuration>
-                <path>$.[?(@id==10)]</path>
-                <content>1</content>
-                <allowWildcards>false</allowWildcards>
-                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
-                <ignoreComments>false</ignoreComments>
-              </con:configuration>
-            </con:assertion>
-            <con:credentials>
-              <con:authType>No Authorization</con:authType>
-            </con:credentials>
-            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-            <con:jmsPropertyConfig/>
-            <con:parameters/>
-          </con:restRequest>
-        </con:config>
-      </con:testStep>
+        <con:threadCount>1</con:threadCount>
+        <con:startDelay>0</con:startDelay>
+        <con:sampleInterval>250</con:sampleInterval>
+        <con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed>
+        <con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange>
+        <con:historyLimit>-1</con:historyLimit>
+        <con:testLimit>4</con:testLimit>
+        <con:limitType>TIME</con:limitType>
+        <con:loadStrategy>
+          <con:type>Simple</con:type>
+          <con:config>
+            <testDelay>2000</testDelay>
+            <randomFactor>1.0</randomFactor>
+          </con:config>
+        </con:loadStrategy>
+        <con:assertion type="Step Status" name="Step Status"/>
+        <con:maxAssertionErrors>100</con:maxAssertionErrors>
+        <con:cancelExcessiveThreads>true</con:cancelExcessiveThreads>
+        <con:strategyInterval>500</con:strategyInterval>
+      </con:loadTest>
       <con:properties/>
     </con:testCase>
     <con:properties/>

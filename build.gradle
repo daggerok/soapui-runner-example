@@ -1,35 +1,32 @@
 buildscript {
   ext {
-    testrunnerVersion = '0.0.3'
-//    testrunnerVersion = '0.0.2'
+    runnerVersion = '4.6.1-beta.0'
   }
   repositories {
-//    mavenLocal()
-    jcenter()
     maven { url 'https://plugins.gradle.org/m2/' }
     maven { url 'http://smartbearsoftware.com/repository/maven2/' }
   }
   dependencies {
-    classpath "io.github.daggerok:soapui-testrunner:$testrunnerVersion"
-//    classpath "gradle.plugin.io.github.daggerok:soapui-testrunner:$testrunnerVersion"
+    classpath "gradle.plugin.io.github.daggerok:soapui-runner:$runnerVersion"
   }
 }
 
 plugins {
   id 'java'
-//  id 'io.github.daggerok.soapui-testrunner' version '0.0.2'
 }
 
+//apply plugin: io.github.daggerok.SoapUILoadTestRunnerPlugin
+//apply plugin: 'io.github.daggerok.soapui-loadtestrunner'
+
 //apply plugin: io.github.daggerok.SoapUITestRunnerPlugin
-apply plugin: 'io.github.daggerok.soapui-testrunner'
+//apply plugin: 'io.github.daggerok.soapui-testrunner'
+
+//apply plugin: io.github.daggerok.SoapUIRunnerPlugin
+apply plugin: 'io.github.daggerok.soapui-runner'
 
 group 'daggerok'
 version '0.0.1'
 
 testrunner {
   projectFile "$projectDir/soapui-test-project.xml"
-  failOnError true
-  projectProperties = [
-      'apiEndpoint=https://jsonplaceholder.typicode.com'
-  ]
 }
