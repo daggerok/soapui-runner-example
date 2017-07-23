@@ -1,19 +1,15 @@
 buildscript {
   ext {
-    runnerVersion = '5.0.0-hotfix.1'
+    runnerVersion = '5.0.1'
   }
   repositories {
-    maven { url './maven-repo' }
+    maven { url "$projectDir/maven-repo" }
     maven { url 'https://plugins.gradle.org/m2/' }
     maven { url 'http://smartbearsoftware.com/repository/maven2/' }
   }
   dependencies {
     classpath "io.github.daggerok:soapui-runner:$runnerVersion"
   }
-}
-
-plugins {
-  id 'java'
 }
 
 apply plugin: 'io.github.daggerok.soapui-runner'
@@ -26,4 +22,8 @@ testrunner {
   projectProperties = [
       'apiEndpoint=https://daggerok.github.io'
   ]
+}
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '3.0'
 }
