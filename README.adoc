@@ -1,4 +1,4 @@
-= soapui-runner-example image:https://travis-ci.org/daggerok/soapui-runner-example.svg?branch=5.2.0-local["Build Status", link="https://travis-ci.org/daggerok/soapui-runner-example"]
+= soapui-runner-example image:https://travis-ci.org/daggerok/soapui-runner-example.svg?branch=5.2.1-local["Build Status", link="https://travis-ci.org/daggerok/soapui-runner-example"]
 
 This repo is contains example usage link:https://github.com/daggerok/soapui-runner[soapui-runner plugin]
 
