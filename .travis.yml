@@ -12,12 +12,12 @@ before_install:
   - source "$HOME/.sdkman/bin/sdkman-init.sh"
   - java -version
   - gradle -v
-  - rm -rf $HOME/.gradle/caches/modules-2/files-2.1/gradle.plugin*
 script:
-  - gradle testrunner
-  - gradle loadtestrunner
+  - gradle testrunner --stacktrace
+  - gradle loadtestrunner --stacktrace
 before_cache:
   - gradle --stop
+  - rm -rf $HOME/.gradle/caches/modules-2/files-2.1/gradle.plugin*
   - rm -rf $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -rf $HOME/.gradle/caches/*/plugin-resolution/
 cache:
