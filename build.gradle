@@ -1,6 +1,6 @@
 buildscript {
 //  ext {
-//    runnerVersion = '5.0.1-hotfix.0'
+//    runnerVersion = '5.0.1'
 //  }
   repositories {
     maven { url 'https://plugins.gradle.org/m2/' }
@@ -13,15 +13,15 @@ buildscript {
 
 plugins {
   id 'java'
-  id 'io.github.daggerok.soapui-runner' version '5.0.1-hotfix.0'
+  id 'io.github.daggerok.soapui-runner' version '5.0.1'
 }
 
 //apply plugin: io.github.daggerok.SoapUILoadTestRunnerPlugin
 //apply plugin: 'io.github.daggerok.soapui-loadtestrunner'
-//
+
 //apply plugin: io.github.daggerok.SoapUITestRunnerPlugin
 //apply plugin: 'io.github.daggerok.soapui-testrunner'
-//
+
 //apply plugin: io.github.daggerok.SoapUIRunnerPlugin
 //apply plugin: 'io.github.daggerok.soapui-runner'
 
