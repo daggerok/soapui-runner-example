@@ -1,8 +1,10 @@
-.DS_Store
+maven-repo
+build
 ext
 .gradle
+.DS_Store
 .idea
-build
 *.iml
 *.ipr
 *.iws
+*.log
