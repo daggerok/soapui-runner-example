@@ -12,6 +12,7 @@ before_install:
   - source "$HOME/.sdkman/bin/sdkman-init.sh"
   - java -version
   - gradle -v
+  - rm -rf $HOME/.gradle
 script:
   - gradle testrunner --stacktrace
   - gradle loadtestrunner --stacktrace
