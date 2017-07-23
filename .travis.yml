@@ -12,7 +12,8 @@ script:
   - git branch -a
   #- git reset --hard origin/v5.0.0
   #- git checkout 5.0.0 -b v5.0.0
-  - git checkout v5.0.0
+  - git checkout v5.0.1
+  - git reset --hard 5cbeb897a61960732aad40a9f17e5a3aec9e7d7b
   - bash gradlew clean build publish
   - cd $TRAVIS_BUILD_DIR
   - gradle testrunner
