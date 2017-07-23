@@ -1,9 +1,10 @@
+maven-repo
+build
 ext
 .gradle
 .idea
-build
 *.iml
 *.ipr
 *.iws
-.DS_Store
 *.log
+.DS_Store
