@@ -1,6 +1,6 @@
 buildscript {
   ext {
-    runnerVersion = '5.1.2-hotfix.1'
+    runnerVersion = '5.1.2-hotfix.2'
   }
   repositories {
     maven { url './maven-repo' }
