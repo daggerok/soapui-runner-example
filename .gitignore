@@ -1,7 +1,8 @@
+!gradle/wrapper/*
+.gradle
 maven-repo
 build
 ext
-.gradle
 .idea
 *.iml
 *.ipr

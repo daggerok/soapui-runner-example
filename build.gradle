@@ -34,3 +34,7 @@ testrunner {
       "apiEndpoint=https://daggerok.github.io"
   ]
 }
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '3.0'
+}
