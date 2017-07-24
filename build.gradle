@@ -11,10 +11,6 @@ buildscript {
   }
 }
 
-plugins {
-  id 'java'
-}
-
 apply plugin: 'io.github.daggerok.soapui-runner'
 
 group 'daggerok'
@@ -23,7 +19,7 @@ version '0.0.1'
 testrunner {
   projectFile "$projectDir/soapui-test-project.xml"
   projectProperties = [
-      "apiEndpoint=https://daggerok.github.io"
+      'apiEndpoint=https://daggerok.github.io'
   ]
 }
 
