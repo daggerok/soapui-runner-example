@@ -1,6 +1,49 @@
 = soapui-runner-example image:https://travis-ci.org/daggerok/soapui-runner-example.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/soapui-runner-example"]
 
-This repo is contains example usage link:https://github.com/daggerok/soapui-runner[soapui-runner plugin]
+This repo contains examples of usage different versions / and style of link:https://github.com/daggerok/soapui-runner[soapui-runner plugin] usage
+
+1. choose needed SoapUI version and configure plugin
+
+[source,gradle]
+----
+buildscript {
+  ext {
+    runnerVersion = '5.3.1-RC'
+  }
+  repositories {
+    maven { url 'https://plugins.gradle.org/m2/' }
+    maven { url 'http://smartbearsoftware.com/repository/maven2/' }
+  }
+  dependencies {
+    classpath "gradle.plugin.io.github.daggerok:soapui-runner:$runnerVersion"
+  }
+}
+
+apply plugin: 'io.github.daggerok.soapui-runner'
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '3.0'
+}
+----
+
+2. optionally configure testrunner and/or loadtestrunner tasks
+
+[source,gradle]
+----
+testrunner {
+  projectFile 'soapui-test-project.xml'
+  projectProperties = [
+      'apiEndpoint=https://daggerok.github.io'
+  ]
+}
+
+loadtestrunner {
+  projectFile 'load-soapui-tests.xml'
+  outputFolder = 'build/soapui/load'
+}
+----
+
+3. run tests
 
 [source,bash]
 gradle testrunner
