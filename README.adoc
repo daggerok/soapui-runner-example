@@ -1,4 +1,4 @@
-= [SoapIO Runner Gradle Plugin](https://github.com/daggerok/soapui-runner) examples image:https://travis-ci.org/daggerok/soapui-runner-example.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/soapui-runner-example"]
+= SoapUI Runner Gradle Plugin examples image:https://travis-ci.org/daggerok/soapui-runner-example.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/soapui-runner-example"]
 
 This repo contains examples of usage different versions / and style of link:https://github.com/daggerok/soapui-runner[soapui-runner plugin] usage
 
