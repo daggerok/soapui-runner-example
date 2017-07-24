@@ -1,6 +1,6 @@
 buildscript {
   ext {
-    runnerVersion = '4.6.3'
+    runnerVersion = '4.6.4'
   }
   repositories {
     maven { url "$projectDir/maven-repo" }
@@ -10,10 +10,6 @@ buildscript {
   dependencies {
     classpath "io.github.daggerok:soapui-runner:$runnerVersion"
   }
-}
-
-plugins {
-  id 'java'
 }
 
 apply plugin: 'io.github.daggerok.soapui-runner'
