@@ -3,11 +3,23 @@ language: java
 jdk: oraclejdk8
 install: true
 before_install:
-  - gradle -v
   - rm -rf $HOME/.gradle
 script:
+  # testing main version
   - bash gradlew testrunner loadtestrunner --stacktrace
-  - gradle testrunner loadtestrunner --stacktrace
+  # sdkman installation
+  - curl -s "https://get.sdkman.io" | bash
+  - mkdir -p "$HOME/.sdkman/etc"
+  - touch "$HOME/.sdkman/etc/config"
+  - sed -i -e 's/^sdkman_auto_answer=false$/sdkman_auto_answer=true/g' "$HOME/.sdkman/etc/config"
+  - source "$HOME/.sdkman/bin/sdkman-init.sh"
+  # testing other gradle versions:
+  - >
+    for version in 3.0 3.1 3.2 3.3 3.4 3.4.1 3.5 4.0 4.0.1; do
+      sdk use gradle $version;
+      source "$HOME/.sdkman/bin/sdkman-init.sh";
+      gradle testrunner loadtestrunner --stacktrace
+    done;
 before_cache:
   - gradle --stop
   - rm -rf $HOME/.gradle/caches/modules-2/files-2.1/gradle.plugin*

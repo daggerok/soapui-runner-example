@@ -1,6 +1,6 @@
 buildscript {
   ext {
-    runnerVersion = '4.6.3'
+    runnerVersion = '4.6.4'
   }
   repositories {
     maven { url 'https://plugins.gradle.org/m2/' }
