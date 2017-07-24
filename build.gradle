@@ -1,9 +1,9 @@
 buildscript {
   ext {
-    runnerVersion = '5.3.0'
+    runnerVersion = '5.3.1-RC'
   }
   repositories {
-    maven { url "$projectDir/maven-repo" }
+    maven { url './maven-repo' }
     maven { url 'https://plugins.gradle.org/m2/' }
     maven { url 'http://smartbearsoftware.com/repository/maven2/' }
   }
