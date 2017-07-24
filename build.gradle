@@ -1,9 +1,9 @@
 buildscript {
   ext {
-    runnerVersion = '5.3.0'
+    runnerVersion = '5.3.1-RC-0'
   }
   repositories {
-    maven { url "$projectDir/maven-repo" }
+    maven { url './maven-repo' }
     maven { url 'https://plugins.gradle.org/m2/' }
     maven { url 'http://smartbearsoftware.com/repository/maven2/' }
   }
@@ -12,9 +12,7 @@ buildscript {
   }
 }
 
-plugins {
-  id 'java'
-}
+plugins { id 'base' }
 
 apply plugin: 'io.github.daggerok.soapui-runner'
 
@@ -30,4 +28,10 @@ testrunner {
 
 task wrapper(type: Wrapper) {
   gradleVersion = '3.0'
+}
+
+repositories { jcenter() }
+
+dependencies {
+  extDir "org.postgresql:postgresql:9.4.1212.jre7"
 }
