@@ -11,10 +11,6 @@ buildscript {
   }
 }
 
-plugins {
-  id 'java'
-}
-
 apply plugin: 'io.github.daggerok.soapui-runner'
 
 group 'daggerok'
