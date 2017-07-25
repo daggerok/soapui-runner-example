@@ -1,6 +1,6 @@
 buildscript {
   ext {
-    runnerVersion = '4.6.4'
+    runnerVersion = '5.0.0'
   }
   repositories {
     maven { url "$projectDir/maven-repo" }
