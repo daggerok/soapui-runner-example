@@ -1,29 +1,17 @@
 buildscript {
-//  ext {
-//    runnerVersion = '5.0.0'
-//  }
+  ext {
+    runnerVersion = '5.0.0-beta'
+  }
   repositories {
     maven { url 'https://plugins.gradle.org/m2/' }
     maven { url 'http://smartbearsoftware.com/repository/maven2/' }
   }
-//  dependencies {
-//    classpath "gradle.plugin.io.github.daggerok:soapui-runner:$runnerVersion"
-//  }
+  dependencies {
+    classpath "gradle.plugin.io.github.daggerok:soapui-runner:$runnerVersion"
+  }
 }
 
-plugins {
-  id 'java'
-  id 'io.github.daggerok.soapui-runner' version '5.0.0'
-}
-
-//apply plugin: io.github.daggerok.SoapUILoadTestRunnerPlugin
-//apply plugin: 'io.github.daggerok.soapui-loadtestrunner'
-
-//apply plugin: io.github.daggerok.SoapUITestRunnerPlugin
-//apply plugin: 'io.github.daggerok.soapui-testrunner'
-
-//apply plugin: io.github.daggerok.SoapUIRunnerPlugin
-//apply plugin: 'io.github.daggerok.soapui-runner'
+apply plugin: 'io.github.daggerok.soapui-runner'
 
 group 'daggerok'
 version '0.0.1'
@@ -31,6 +19,6 @@ version '0.0.1'
 testrunner {
   projectFile "$projectDir/soapui-test-project.xml"
   projectProperties = [
-      "apiEndpoint=https://daggerok.github.io"
+      'apiEndpoint=https://daggerok.github.io'
   ]
 }
