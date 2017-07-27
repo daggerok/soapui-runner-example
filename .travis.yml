@@ -6,8 +6,8 @@ before_install:
   - gradle -v
   - rm -rf $HOME/.gradle
 script:
-  - bash gradlew testrunner loadtestrunner --stacktrace
-  - gradle testrunner loadtestrunner --stacktrace
+  - bash gradlew extDir testrunner loadtestrunner --stacktrace
+  - gradle extDir testrunner loadtestrunner --stacktrace
 before_cache:
   - gradle --stop
   - rm -rf $HOME/.gradle/caches/modules-2/files-2.1/gradle.plugin*

@@ -7,19 +7,25 @@ buildscript {
 
 plugins {
   id 'java'
-  id 'io.github.daggerok.soapui-runner' version '5.3.1-RC'
+  id 'io.github.daggerok.soapui-runner' version '5.3.1-RC-0'
 }
 
 group 'daggerok'
 version '0.0.1'
 
 testrunner {
-  projectFile "$projectDir/soapui-test-project.xml"
+  projectFile = "$projectDir/soapui-test-project.xml"
   projectProperties = [
-      "apiEndpoint=https://daggerok.github.io"
+      'apiEndpoint=https://daggerok.github.io'
   ]
 }
 
 task wrapper(type: Wrapper) {
   gradleVersion = '3.0'
+}
+
+repositories { jcenter() }
+
+dependencies {
+  extDir "org.postgresql:postgresql:9.4.1212.jre7"
 }
