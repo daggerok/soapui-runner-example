@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="474532ac-bdb1-46e2-a6d6-77b72d4dd6bd" activeEnvironment="Default" name="workforce-management-soapui-test-project-SUT" resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:interface xsi:type="con:RestService" id="d2633e1a-a9ba-4975-962b-aaaff8b720a4" wadlVersion="http://wadl.dev.java.net/2009/02" name="${#Project#workforceManagementUrl}" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings/>
+    <con:definitionCache type="TEXT" rootPart=""/>
+    <con:endpoints>
+      <con:endpoint>http://172.29.238.78/workforce_management</con:endpoint>
+    </con:endpoints>
+    <con:resource name="EngineerRestResource" path="/v1/engineers" id="eccf557c-f62d-495d-aa1d-8b30f8b82a34">
+      <con:settings/>
+      <con:parameters/>
+      <con:resource name="OneQueryParam" path="?{param1}={val1}" id="fdaa8b97-e699-4aba-a5e2-92f4ff9b2d7a">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>param1</con:name>
+            <con:value/>
+            <con:style>TEMPLATE</con:style>
+            <con:default/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>val1</con:name>
+            <con:value/>
+            <con:style>TEMPLATE</con:style>
+            <con:default/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:method name="GetEngineersOneParam" id="b8b43f37-9d0b-49a7-a316-dbc4d84dcc82" method="GET">
+          <con:settings/>
+          <con:parameters/>
+          <con:representation type="FAULT">
+            <con:mediaType xsi:nil="true"/>
+            <con:status>404</con:status>
+            <con:params/>
+            <con:element>data</con:element>
+          </con:representation>
+          <con:representation type="FAULT">
+            <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+            <con:status>400 401</con:status>
+            <con:params/>
+            <con:element xmlns:loc="http://localhost/">loc:Fault</con:element>
+          </con:representation>
+          <con:representation type="RESPONSE">
+            <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+            <con:status>200</con:status>
+            <con:params/>
+            <con:element>Response</con:element>
+          </con:representation>
+          <con:request name="Request" id="4e772be1-7b4e-41ce-9c9e-3db817886258" mediaType="application/json">
+            <con:settings/>
+            <con:endpoint>http://localhost:8080</con:endpoint>
+            <con:request/>
+            <con:credentials>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+            <con:parameterOrder>
+              <con:entry>param1</con:entry>
+              <con:entry>val1</con:entry>
+            </con:parameterOrder>
+          </con:request>
+        </con:method>
+      </con:resource>
+      <con:resource name="TwoQueryParams" path="?{param1}={val1}&amp;{param2}={val2}" id="fdaa8b97-e699-4aba-a5e2-92f4ff9b2d7a">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>param1</con:name>
+            <con:value/>
+            <con:style>TEMPLATE</con:style>
+            <con:default/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>val1</con:name>
+            <con:value/>
+            <con:style>TEMPLATE</con:style>
+            <con:default/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>param2</con:name>
+            <con:value/>
+            <con:style>TEMPLATE</con:style>
+            <con:default/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>val2</con:name>
+            <con:value/>
+            <con:style>TEMPLATE</con:style>
+            <con:default/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:method name="GetEngineersTwoParams" id="b8b43f37-9d0b-49a7-a316-dbc4d84dcc82" method="GET">
+          <con:settings/>
+          <con:parameters/>
+          <con:representation type="FAULT">
+            <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+            <con:status>401</con:status>
+            <con:params/>
+            <con:element xmlns:eng="http://localhost/workforce_management/v1/engineers/">eng:Fault</con:element>
+          </con:representation>
+          <con:representation type="RESPONSE">
+            <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+            <con:status>200</con:status>
+            <con:params/>
+            <con:element>Response</con:element>
+          </con:representation>
+          <con:request name="Request" id="4e772be1-7b4e-41ce-9c9e-3db817886258" mediaType="application/json">
+            <con:settings/>
+            <con:endpoint>http://localhost:8080</con:endpoint>
+            <con:request/>
+            <con:credentials>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+            <con:parameterOrder>
+              <con:entry>param1</con:entry>
+              <con:entry>val1</con:entry>
+              <con:entry>param2</con:entry>
+              <con:entry>val2</con:entry>
+            </con:parameterOrder>
+          </con:request>
+        </con:method>
+      </con:resource>
+      <con:resource name="UsernamePathParam" path="{username}" id="d96e134c-047b-434b-9be9-02a7d55be64f">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>username</con:name>
+            <con:value/>
+            <con:style>TEMPLATE</con:style>
+            <con:default/>
+          </con:parameter>
+        </con:parameters>
+        <con:method name="DeleteEngineerByUsername" id="359057fd-7da1-4f60-b9c9-d70b54244a9e" method="DELETE">
+          <con:settings/>
+          <con:parameters/>
+          <con:representation type="REQUEST">
+            <con:mediaType>application/json</con:mediaType>
+            <con:params/>
+          </con:representation>
+          <con:representation type="FAULT">
+            <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+            <con:status>400</con:status>
+            <con:params/>
+            <con:element xmlns:eng="http://localhost/workforce_management/v1/engineers">eng:Fault</con:element>
+          </con:representation>
+          <con:representation type="RESPONSE">
+            <con:mediaType xsi:nil="true"/>
+            <con:status>202</con:status>
+            <con:params/>
+            <con:element>data</con:element>
+          </con:representation>
+          <con:representation type="RESPONSE">
+            <con:mediaType xsi:nil="true"/>
+            <con:status>202</con:status>
+            <con:params/>
+            <con:element>data</con:element>
+          </con:representation>
+          <con:request name="Request" id="1ad8a6e6-da1c-4114-91a9-343438523c49" mediaType="application/json" postQueryString="false">
+            <con:settings/>
+            <con:endpoint>http://localhost:8080</con:endpoint>
+            <con:request/>
+            <con:credentials>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="username" value="" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:request>
+        </con:method>
+        <con:method name="UpdateEngineerByUsername" id="359057fd-7da1-4f60-b9c9-d70b54244a9e" method="PUT">
+          <con:settings/>
+          <con:parameters/>
+          <con:representation type="REQUEST">
+            <con:mediaType>application/json</con:mediaType>
+            <con:params/>
+          </con:representation>
+          <con:representation type="FAULT">
+            <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+            <con:status>400</con:status>
+            <con:params/>
+            <con:element xmlns:eng="http://localhost/workforce_management/v1/engineers">eng:Fault</con:element>
+          </con:representation>
+          <con:representation type="RESPONSE">
+            <con:mediaType xsi:nil="true"/>
+            <con:status>202</con:status>
+            <con:params/>
+            <con:element>data</con:element>
+          </con:representation>
+          <con:representation type="RESPONSE">
+            <con:mediaType xsi:nil="true"/>
+            <con:status>202</con:status>
+            <con:params/>
+            <con:element>data</con:element>
+          </con:representation>
+          <con:request name="Request" id="1ad8a6e6-da1c-4114-91a9-343438523c49" mediaType="application/json" postQueryString="false">
+            <con:settings/>
+            <con:endpoint>http://localhost:8080</con:endpoint>
+            <con:request/>
+            <con:credentials>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="username" value="" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:request>
+        </con:method>
+        <con:method name="GetEngineerByUsername" id="44723c1d-4d05-4124-b9ee-7ae62ed5adae" method="GET">
+          <con:settings/>
+          <con:parameters/>
+          <con:representation type="FAULT">
+            <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+            <con:status>400</con:status>
+            <con:params/>
+            <con:element xmlns:eng="http://localhost/workforce_management/v1/engineers">eng:Fault</con:element>
+          </con:representation>
+          <con:representation type="RESPONSE">
+            <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+            <con:status>200</con:status>
+            <con:params/>
+            <con:element xmlns:eng="http://localhost/workforce_management/v1/engineers">eng:Response</con:element>
+          </con:representation>
+          <con:request name="Request" id="09e00c83-befb-46dc-a39c-404e89d2ab59" mediaType="application/json">
+            <con:settings/>
+            <con:endpoint>http://localhost:8080</con:endpoint>
+            <con:request/>
+            <con:credentials>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="username" value="" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:request>
+        </con:method>
+      </con:resource>
+      <con:method name="CreateEngineer" id="62a98633-fa52-45da-abea-e0c3a2cd56ec" method="POST">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element xmlns:eng="http://localhost/workforce_management/v1/engineers">eng:Response</con:element>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+          <con:status>401</con:status>
+          <con:params/>
+          <con:element xmlns:eng="http://localhost/workforce_management/v1/engineers">eng:Fault</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>202</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:request name="Request" id="0e7b94ac-f4cd-4873-94ef-919de62700e4" mediaType="application/json" postQueryString="false">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="" xmlns="http://eviware.com/soapui/config"/></con:setting>
+          </con:settings>
+          <con:endpoint>http://localhost:8080</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters/>
+          <con:parameterOrder/>
+        </con:request>
+      </con:method>
+      <con:method name="GetEngineers" id="62a98633-fa52-45da-abea-e0c3a2cd56ec" method="GET">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element xmlns:eng="http://localhost/workforce_management/v1/engineers">eng:Response</con:element>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+          <con:status>401 400</con:status>
+          <con:params/>
+          <con:element xmlns:eng="http://localhost/workforce_management/v1/engineers">eng:Fault</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>202</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:request name="Request" id="0e7b94ac-f4cd-4873-94ef-919de62700e4" mediaType="application/json" postQueryString="false">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="" xmlns="http://eviware.com/soapui/config"/></con:setting>
+          </con:settings>
+          <con:endpoint>http://localhost:8080</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters/>
+          <con:parameterOrder/>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:interface xsi:type="con:RestService" id="adb4f707-e71c-4b56-ad87-282d879bea51" wadlVersion="http://wadl.dev.java.net/2009/02" name="${#Project#authorizationEndpoint}" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings/>
+    <con:definitionCache type="TEXT" rootPart=""/>
+    <con:endpoints>
+      <con:endpoint>http://172.29.238.78</con:endpoint>
+    </con:endpoints>
+    <con:resource name="Authorize" path="/authorization/token/v1/authorize" id="6cd5c342-e5c5-4b83-b62d-0f0610dc6267">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="Authorization" id="de81886c-d73d-431f-8ad2-49da470f5643" method="POST">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element xmlns:aut="http://172.29.238.78/authorization/token/v1/authorize">aut:Response</con:element>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+        </con:representation>
+        <con:request name="Request" id="643a7faf-f395-4a86-a601-e954fdc79178" mediaType="application/json" postQueryString="false">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="username" value="${#Project#auth.username}"/>
+  &lt;con:entry key="password" value="${#Project#auth.password}"/>
+&lt;/xml-fragment></con:setting>
+          </con:settings>
+          <con:endpoint>http://172.29.238.78</con:endpoint>
+          <con:request/>
+          <con:originalUri>http://172.29.238.78/authorization/token/v1/authorize</con:originalUri>
+          <con:credentials>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:testSuite id="19b42ba5-1ef5-464d-b9ef-c36923f847e7" name="SetupAccessTokenTestSuite">
+    <con:settings/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="c0db0bd8-a142-4897-b853-2f09e9eaf0cd" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SetupAccessTokenTestCase" searchProperties="true">
+      <con:settings/>
+      <con:testStep type="restrequest" name="GetAuthorizationToken" id="822e4f1f-3cba-4686-b4c4-b6305e0ee825">
+        <con:settings/>
+        <con:config service="${#Project#authorizationEndpoint}" resourcePath="/authorization/token/v1/authorize" methodName="Authorization" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="GetAuthorizationToken" id="643a7faf-f395-4a86-a601-e954fdc79178" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="password" value="${#Project#auth.password}"/>
+  &lt;con:entry key="username" value="${#Project#auth.username}"/>
+&lt;/xml-fragment></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#authorizationEndpoint}</con:endpoint>
+            <con:request/>
+            <con:originalUri>http://172.29.238.78/authorization/token/v1/authorize</con:originalUri>
+            <con:assertion type="JsonPath Count" id="21399aed-94b4-4b07-891e-6330dbee89aa" name="JsonPath Count">
+              <con:configuration>
+                <path>$access_token</path>
+                <content>1</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="transfer" name="ParseAccessTokenFromResponse" id="722cf7d6-77aa-4c76-a87b-0b425e3c3b8c">
+        <con:settings/>
+        <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+            <con:name>authorizationSource</con:name>
+            <con:sourceType>Response</con:sourceType>
+            <con:sourceStep>GetAuthorizationToken</con:sourceStep>
+            <con:sourcePath>access_token</con:sourcePath>
+            <con:targetType>auth.token</con:targetType>
+            <con:targetStep>#Project#</con:targetStep>
+            <con:type>JSONPATH</con:type>
+            <con:upgraded>true</con:upgraded>
+          </con:transfers>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:properties/>
+  </con:testSuite>
+  <con:testSuite id="5c69cd29-3c40-4872-bb6f-1711ca170d23" name="EngineersRestResourceTestSuite">
+    <con:settings/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="591ad1e5-6a5c-4ba1-a0a8-a0ac0b842bfc" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetEngineerByUsernameTestCase" searchProperties="true">
+      <con:settings/>
+      <con:testStep type="calltestcase" name="Authorization" id="9fbce8cd-313d-4ebc-ac2b-1c965e9bde80">
+        <con:settings/>
+        <con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:targetTestCase>c0db0bd8-a142-4897-b853-2f09e9eaf0cd</con:targetTestCase>
+          <con:properties/>
+          <con:returnProperties/>
+          <con:runMode>PARALLELL</con:runMode>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="UsernameGenerator" id="e9324fc1-fefe-4da5-a1b2-65b26bd9c500">
+        <con:settings/>
+        <con:config>
+          <script>def usernameUUID = java.util.UUID.randomUUID().toString()
+testRunner.testCase.setPropertyValue( "eng.username", usernameUUID )</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="SetUpTestData" id="c5c6e774-e6d8-49ad-b534-2308cccd5088">
+        <con:settings/>
+        <con:config>
+          <script>def defaultPathBase = new File( "." ).getCanonicalPath()
+log.warn "Current dir:" + defaultPathBase
+log.warn "Current dir:" + context.expand('${projectDir}')
+
+def project = testRunner.testCase.testSuite.project
+
+import java.nio.file.Paths
+import com.eviware.soapui.support.*
+
+def groovyUtils = new GroovyUtils(context)
+//def projectPath = Paths.get(project.getPath()).toFile().getParent()
+////// https://mvnrepository.com/artifact/org.postgresql/postgresql/9.4.1212.jre7
+//def driverJarFile = Paths.get(projectPath, 'ext', 'postgresql-9.4.1212.jre7.jar').toFile()
+////def driverJarFile = Paths.get(projectPath, 'ext', 'ivy-2.4.0.jar').toFile()
+////def driverJarFile = Paths.get(projectPath, 'ext', 'postgresql-9.4.1212.jar').toFile()
+//log.warn "proj: $projectPath, driver: $driverJarFile"
+//log.warn "groovyUtils.getProjectPath(): ${groovyUtils.getProjectPath()}"
+//
+//def classpathHacker = new ClasspathHacker()
+//classpathHacker.addFile(driverJarFile)
+//ClasspathHacker.addFile(driverJarFile)
+//ClasspathHacker.addURL(driverJarFile.toURI().toURL())
+groovyUtils.registerJdbcDriver("org.postgresql.Driver")
+
+def dbUrl = project.getPropertyValue("db.url")
+def dbUser = project.getPropertyValue("db.user")
+def dbPassword = project.getPropertyValue("db.password")
+def dbDriver = project.getPropertyValue("db.driver")
+def con = con = groovy.sql.Sql.newInstance(dbUrl, dbUser, dbPassword, dbDriver)
+def query = "SELECT * FROM engineer;"
+def res = con?.execute(query)
+
+con?.close()
+log.warn 'done'</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Request" id="fa7f35f5-665f-4c20-a3c7-25197e1c9cd4" disabled="true">
+        <con:settings/>
+        <con:config service="${#Project#workforceManagementUrl}" resourcePath="/v1/engineers/{username}" methodName="GetEngineerByUsername" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Request" id="0e7b94ac-f4cd-4873-94ef-919de62700e4" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="Bearer ${#Project#auth.token}" xmlns="http://eviware.com/soapui/config"/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#apiEndpoint}</con:endpoint>
+            <con:request/>
+            <con:originalUri>http://localhost/workforce_management/v1/engineers</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="505769ee-4b85-4f69-949c-7a4a9734a0f2" name="Valid HTTP Status Codes">
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="JsonPath Count" id="32462083-a17b-462c-abd1-dfd7bf3649cd" name="JsonPath Count">
+              <con:configuration>
+                <path>$</path>
+                <content>1</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="JsonPath Match" id="c864f073-fac7-4aa7-b06a-1ed326cdcebc" name="Username">
+              <con:configuration>
+                <path>$username</path>
+                <content>${#TestCase#eng.username}</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="username" value="${#TestCase#eng.username}" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+            <con:parameterOrder/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="CleanUpTestData" id="ee1fa01d-c150-475f-a3d9-260cb5f73698" disabled="true">
+        <con:settings/>
+        <con:config>
+          <script>import groovy.sql.Sql
+
+log.info( " => Clean up test data..." )
+
+com.eviware.soapui.support.GroovyUtils.registerJdbcDriver("org.postgresql.Driver")
+def project = testRunner.testCase.testSuite.project
+def dbUrl = project.getPropertyValue( "db.url" )
+def dbUser = project.getPropertyValue( "db.user" )
+def dbPassword = project.getPropertyValue( "db.password" )
+def dbDriver = project.getPropertyValue( "db.driver" )
+def con = Sql.newInstance(dbUrl, dbUser, dbPassword, dbDriver)
+log.info( "DB connection is set." )
+
+def engineerUsename = testRunner.testCase.getPropertyValue( "eng.username" )
+def res = con.execute("DELETE  FROM engineer WHERE username = ?", [ engineerUsename ])
+
+con.close()
+log.info( "DB connection closed." )
+
+log.info(testRunner.testCase.testSteps)
+log.info(testRunner.testCase.testSteps.UsernameGenerator)</script>
+        </con:config>
+      </con:testStep>
+      <con:properties>
+        <con:property>
+          <con:name>eng.username</con:name>
+          <con:value>461515f2-c9a7-4642-84cf-a8975bfe9d2d</con:value>
+        </con:property>
+      </con:properties>
+    </con:testCase>
+    <con:properties/>
+  </con:testSuite>
+  <con:properties>
+    <con:property>
+      <con:name>auth.username</con:name>
+      <con:value>admin</con:value>
+    </con:property>
+    <con:property>
+      <con:name>auth.password</con:name>
+      <con:value>admin</con:value>
+    </con:property>
+    <con:property>
+      <con:name>auth.token</con:name>
+      <con:value>bb777b06-9138-474e-a719-cce1fe94bc6b</con:value>
+    </con:property>
+    <con:property>
+      <con:name>db.name</con:name>
+      <con:value>dtra_workforce</con:value>
+    </con:property>
+    <con:property>
+      <con:name>db.host</con:name>
+      <con:value>172.29.238.82</con:value>
+    </con:property>
+    <con:property>
+      <con:name>db.port</con:name>
+      <con:value>5432</con:value>
+    </con:property>
+    <con:property>
+      <con:name>db.url</con:name>
+      <con:value>jdbc:postgresql://172.29.238.82:5432/dtra_workforce</con:value>
+    </con:property>
+    <con:property>
+      <con:name>db.user</con:name>
+      <con:value>postgres</con:value>
+    </con:property>
+    <con:property>
+      <con:name>db.password</con:name>
+      <con:value>PH03n1xP0stGresAdmin</con:value>
+    </con:property>
+    <con:property>
+      <con:name>db.driver</con:name>
+      <con:value>org.postgresql.Driver</con:value>
+    </con:property>
+    <con:property>
+      <con:name>authorizationEndpoint</con:name>
+      <con:value>http://172.29.238.78</con:value>
+    </con:property>
+    <con:property>
+      <con:name>apiEndpoint</con:name>
+      <con:value>http://172.29.238.78</con:value>
+    </con:property>
+    <con:property>
+      <con:name>extDir</con:name>
+      <con:value>${projectDir}/ext</con:value>
+    </con:property>
+  </con:properties>
+  <con:wssContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+  <con:sensitiveInformation/>
+</con:soapui-project>
