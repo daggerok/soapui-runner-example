@@ -7,19 +7,38 @@ buildscript {
 
 plugins {
   id 'java'
-  id 'io.github.daggerok.soapui-runner' version '5.3.1-RC-1'
+  id 'io.github.daggerok.soapui-runner' version '5.3.1-RC-2'
 }
 
 group 'daggerok'
 version '0.0.1'
 
+allprojects {
+  testrunner {
+    projectProperties = [
+        'p=base',
+        'p1=p1',
+        'apiEndpoint=https://daggerok.github.io-no'
+    ]
+    systemProperties = [
+        's=base',
+        's1=s1',
+        "soapui.ext.libraries=$buildDir/soapui/ext-nono"
+    ]
+  }
+}
+
 testrunner {
   projectFile = "$projectDir/soapui-test-project.xml"
   projectProperties = [
+      'p=override',
+      'p2=p2',
       'apiEndpoint=https://daggerok.github.io'
   ]
   systemProperties = [
-       "soapui.ext.libraries=$buildDir/soapui/ext"
+      's=override',
+      's2=s2',
+      "soapui.ext.libraries=$buildDir/soapui/ext"
   ]
 }
 

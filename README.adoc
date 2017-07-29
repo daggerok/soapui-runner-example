@@ -12,7 +12,7 @@ buildscript {
     maven { url 'http://smartbearsoftware.com/repository/maven2/' }
   }
   dependencies {
-    classpath "io.github.daggerok:soapui-runner:5.3.1-RC-1"
+    classpath "io.github.daggerok:soapui-runner:5.3.1-RC-2"
   }
 }
 
@@ -31,7 +31,7 @@ buildscript {
 }
 
 plugins {
-  id 'io.github.daggerok.soapui-runner' version '5.3.1-RC-1'
+  id 'io.github.daggerok.soapui-runner' version '5.3.1-RC-2'
 }
 ----
 
@@ -62,3 +62,36 @@ dependencies {
 gradle extDir
 gradle testrunner
 gradle loadtestrunner
+
+== adding new and override existed properties
+
+[source,gradle]
+----
+
+allprojects {
+  testrunner {
+    projectProperties = [
+        'p=base',
+        'apiEndpoint=https://daggerok.github.io-wrong'
+    ]
+    systemProperties = [
+        's=base',
+        "soapui.ext.libraries=$buildDir/soapui/ext-wrong"
+    ]
+  }
+}
+
+testrunner {
+  projectFile = "$projectDir/soapui-test-project.xml"
+  projectProperties = [
+      'p=existed-prop-will-be-overriden',
+      'newPropjectProp=new-prop-will-be-added',
+      'apiEndpoint=https://daggerok.github.io'
+  ]
+  systemProperties = [
+      's=existed-prop-will-be-overriden',
+      'newSystemProp=new-prop-will-be-added',
+      "soapui.ext.libraries=$buildDir/soapui/ext"
+  ]
+}
+----
