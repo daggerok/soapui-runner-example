@@ -8,10 +8,9 @@ script:
       gradle wrapper --gradle-version $version;
       bash gradlew -v;
       bash gradlew extDir testrunner loadtestrunner --stacktrace;
-      rm -rf $HOME/.gradle;
+      bash gradlew --stop;
     done;
 before_cache:
-  - gradle --stop
   - rm -rf $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -rf $HOME/.gradle/caches/*/plugin-resolution/
 cache:
