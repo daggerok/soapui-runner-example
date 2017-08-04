@@ -4,7 +4,7 @@ buildscript {
     maven { url 'http://smartbearsoftware.com/repository/maven2/' }
   }
   dependencies {
-    classpath "gradle.plugin.io.github.daggerok:soapui-runner:5.3.0-3"
+    classpath "gradle.plugin.io.github.daggerok:soapui-runner:5.3.0-4"
   }
 }
 
