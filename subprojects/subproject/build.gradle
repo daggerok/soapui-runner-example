@@ -2,6 +2,9 @@ apply plugin: 'io.github.daggerok.soapui-loadtestrunner'
 
 testrunner {
   projectFile = "$projectDir/custom.xml"
+  projectProperties = [
+      'apiEndpoint=https://daggerok.github.io'
+  ]
 }
 
 loadtestrunner {
