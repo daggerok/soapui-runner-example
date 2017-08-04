@@ -12,7 +12,7 @@ script:
   - cd $TRAVIS_BUILD_DIR
   - >
     for version in 2.8 2.9 2.10 2.11 2.12 2.13 2.14 3.0 3.1 3.2 3.3 3.4 3.4.1 3.5 4.0 4.0.1 4.0.2; do
-      gradle wrapper --gradle-version $version;
+      gradle wrapper --gradle-version $version --distribution-type=bin;
       bash gradlew -v;
       bash gradlew extDir testrunner loadtestrunner -S;
       bash gradlew --stop;
