@@ -1,7 +1,97 @@
-= soapui-runner-example image:https://travis-ci.org/daggerok/soapui-runner-example.svg?branch=5.3.0-RC-local["Build Status", link="https://travis-ci.org/daggerok/soapui-runner-example"]
+= soapui-runner-example image:https://travis-ci.org/daggerok/soapui-runner-example.svg?branch=5.3.0-local["Build Status", link="https://travis-ci.org/daggerok/soapui-runner-example"]
 
 This repo is contains example usage link:https://github.com/daggerok/soapui-runner[soapui-runner plugin]
 
+== install
+
+[source,gradle]
+----
+buildscript {
+  repositories {
+    maven { url 'https://plugins.gradle.org/m2/' }
+    maven { url 'http://smartbearsoftware.com/repository/maven2/' }
+  }
+  dependencies {
+    classpath "gradle.plugin.io.github.daggerok:soapui-runner:5.3.0-2"
+  }
+}
+
+apply plugin: 'io.github.daggerok.soapui-runner'
+----
+
+==== or
+
+[source,gradle]
+----
+buildscript {
+  repositories {
+    maven { url 'https://plugins.gradle.org/m2/' }
+    maven { url 'http://smartbearsoftware.com/repository/maven2/' }
+  }
+}
+
+plugins {
+  id 'io.github.daggerok.soapui-runner' version '5.3.0-2'
+}
+----
+
+== config
+
+[source,gradle]
+----
+testrunner {
+  projectFile = "$projectDir/soapui-test-project.xml"
+  projectProperties = [
+      'apiEndpoint=https://daggerok.github.io'
+  ]
+  systemProperties = [
+       "soapui.ext.libraries=$buildDir/soapui/ext"
+  ]
+}
+
+repositories { jcenter() }
+
+dependencies {
+  extDir "org.postgresql:postgresql:9.4.1212.jre7"
+}
+----
+
+== run
+
 [source,bash]
+gradle extDir
 gradle testrunner
 gradle loadtestrunner
+
+== adding new and override existed properties
+
+[source,gradle]
+----
+
+allprojects {
+  testrunner {
+    projectProperties = [
+        'p=base',
+        'apiEndpoint=https://daggerok.github.io-wrong'
+    ]
+    systemProperties = [
+        's=base',
+        "soapui.ext.libraries=$buildDir/soapui/ext-wrong"
+    ]
+  }
+}
+
+testrunner {
+  projectFile = "$projectDir/soapui-test-project.xml"
+  projectProperties = [
+      'p=existed-prop-will-be-overriden',
+      'newPropjectProp=new-prop-will-be-added',
+      'apiEndpoint=https://daggerok.github.io'
+  ]
+  systemProperties = [
+      's=existed-prop-will-be-overriden',
+      'newSystemProp=new-prop-will-be-added',
+      "soapui.ext.libraries=$buildDir/soapui/ext"
+  ]
+}
+----

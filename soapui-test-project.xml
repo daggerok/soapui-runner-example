@@ -133,7 +133,7 @@
                 <useRegEx>false</useRegEx>
               </con:configuration>
             </con:assertion>
-            <con:assertion type="JsonPath Count" id="212c2065-75e9-4dfc-b45b-bf165ec8e7f8" name="JsonPath Count: 1 $.[?(@name==Ukraine)]" disabled="true">
+            <con:assertion type="JsonPath Count" id="212c2065-75e9-4dfc-b45b-bf165ec8e7f8" name="JsonPath Count: 1 $.[?(@name==Ukraine)]">
               <con:configuration>
                 <path>$.[?(@name==Ukraine)]</path>
                 <content>1</content>
@@ -142,7 +142,7 @@
                 <ignoreComments>false</ignoreComments>
               </con:configuration>
             </con:assertion>
-            <con:assertion type="JsonPath Count" id="624753b9-3962-45b6-a773-6da4d5b8ec15" name="JsonPath Count: total 249 objects in response" disabled="true">
+            <con:assertion type="JsonPath Count" id="624753b9-3962-45b6-a773-6da4d5b8ec15" name="JsonPath Count: total 249 objects in response">
               <con:configuration>
                 <path>$..name</path>
                 <content>249</content>
