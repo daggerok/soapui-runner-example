@@ -1,7 +1,7 @@
 /*
 buildscript {
   ext {
-    runnerVersion = '5.3.0-3'
+    runnerVersion = '5.3.1-RC-4'
   }
   repositories {
     maven { url "$projectDir/maven-repo" }
@@ -37,7 +37,7 @@ task wrapper(type: Wrapper) {
 ///*
 buildscript {
   ext {
-    runnerVersion = '5.3.0-4'
+    runnerVersion = '5.3.1-RC-4'
   }
   repositories {
     maven { url "$projectDir/maven-repo" }
@@ -94,6 +94,6 @@ dependencies {
 }
 
 task wrapper(type: Wrapper) {
-  gradleVersion = '3.5'
+  gradleVersion = '2.8'
 }
 //*/
