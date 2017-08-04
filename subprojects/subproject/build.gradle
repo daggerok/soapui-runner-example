@@ -1,0 +1,20 @@
+apply plugin: 'io.github.daggerok.soapui-loadtestrunner'
+
+testrunner {
+  projectFile = "$projectDir/custom.xml"
+}
+
+loadtestrunner {
+  projectFile = "$projectDir/custom.xml"
+  projectProperties = [
+      'apiEndpoint=https://daggerok.github.io'
+  ]
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  extDir 'com.google.guava:guava:18.0'
+}
