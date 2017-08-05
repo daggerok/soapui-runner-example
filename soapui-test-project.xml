@@ -35,7 +35,7 @@
     <con:settings/>
     <con:definitionCache type="TEXT" rootPart=""/>
     <con:endpoints/>
-    <con:resource name="${#Project#apiEndpoint}" path="/api/test-data/soapui.json" id="1302addb-5ec6-46c3-9d5f-12d155aa5e17">
+    <con:resource name="${#Project#apiEndpoint}" path="/soapui-runner/api/test-data/soapui.json" id="1302addb-5ec6-46c3-9d5f-12d155aa5e17">
       <con:settings/>
       <con:parameters/>
       <con:method name="GET" id="6381ed28-9163-4240-b684-b7ad3d80eee5" method="GET">
@@ -89,7 +89,7 @@
           </con:settings>
           <con:endpoint>${#Project#apiEndpoint}</con:endpoint>
           <con:request/>
-          <con:originalUri>https://daggerok.github.io/api/test-data/soapui.json</con:originalUri>
+          <con:originalUri>https://daggerok.github.io/soapui-runner/api/test-data/soapui.json</con:originalUri>
           <con:credentials>
             <con:authType>No Authorization</con:authType>
           </con:credentials>
@@ -108,7 +108,7 @@
       <con:settings/>
       <con:testStep type="restrequest" name="GetRequest" id="1d4c2fce-ceb2-4c7c-8eac-a59ac2c44ef0">
         <con:settings/>
-        <con:config service="BaseApiEndpoint" resourcePath="/api/test-data/soapui.json" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <con:config service="BaseApiEndpoint" resourcePath="/soapui-runner/api/test-data/soapui.json" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:restRequest name="GetRequest" id="29e173c3-1fd9-47a7-bec9-b49babe06ed2" mediaType="application/json">
             <con:settings>
               <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
