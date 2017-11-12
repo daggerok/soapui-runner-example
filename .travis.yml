@@ -1,6 +1,11 @@
 group: edge
 language: java
-jdk: oraclejdk8
+jdk:
+  - oraclejdk8
+  - openjdk8
+env:
+  global:
+    TERM=dumb
 install: true
 script:
   - >
