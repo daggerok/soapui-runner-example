@@ -4,7 +4,9 @@ jdk: oraclejdk8
 install: true
 script:
   - >
-    for version in  4.3.1 4.3 4.2 4.1 4.0.2 4.0.1 4.0 3.5 3.4.1 3.4 3.3 3.2 3.1 3.0; do
+    for version in  4.3.1 4.3 4.2 4.1 4.0.2 4.0.1 4.0 \
+                    3.5 3.4.1 3.4 3.3 3.2 3.1 3.0
+    do
       gradle wrapper --gradle-version $version -S;
       bash gradlew -v;
       bash gradlew extDir testrunner loadtestrunner -S;
